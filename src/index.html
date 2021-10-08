@@ -18,13 +18,20 @@
       left: 0;
       right: 0;
       position: absolute;
-      background-image: url(https://i.pinimg.com/originals/88/d0/fc/88d0fc3….jpg);
+      background-image: url('https://i.pinimg.com/originals/88/d0/fc/88d0fc32cf84ff43090c4e9a7a7d348f.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       margin: 0;
       width: 100%;
       padding: 0;
       background-position: center;
+    }
+    
+    #countdown {
+      display: block;
+      width: 100%;
+      font-size: 84px;
+      text-align: center;
     }
     
     
@@ -43,18 +50,25 @@
 <script>
   const deadline = '2021-10-09 19:30';
   
+  function pad(num, size) {
+    num = num.toString();
+    while (num.length < size) num = "0" + num;
+    return num;
+  }
+  
   function updateCountdown() {
     const total = Date.parse(deadline) - new Date();
+    const milliseconds = total % 1000;
     const seconds = Math.floor( (total/1000) % 60 );
     const minutes = Math.floor( (total/1000/60) % 60 );
     const hours = Math.floor( (total/(1000*60*60)) % 24 );
     const days = Math.floor( total/(1000*60*60*24) );
 
     var el = document.getElementById('countdown');
-    el.innerText = days + 'd ' + hours + ':' + minutes + ':' + seconds;
+    el.innerText = days + 'd ' + pad(hours, 2) + ':' + pad(minutes, 2) + ':' + pad(seconds, 2) + '.' + pad(milliseconds, 4);
   }
   
-  setInterval(updateCountdown, 1000);
+  setInterval(updateCountdown, 1);
 </script>
 
 </html>
