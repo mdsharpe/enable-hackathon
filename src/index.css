@@ -1,0 +1,32 @@
+
+html, body {
+    font-family: 'Cascadia Mono', 'Consolas', sans-serif;
+    color: white;
+}
+
+main {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-image: url('https://i.pinimg.com/originals/88/d0/fc/88d0fc32cf84ff43090c4e9a7a7d348f.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    background-position: center;
+}
+
+h1 {
+    color: #79B55B;
+}
+
+h1,
+#countdown {
+    display: block;
+    width: 100%;
+    font-size: 84px;
+    text-align: center;
+}

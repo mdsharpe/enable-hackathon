@@ -5,42 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enable Hackathon</title>
-  
-  <style>
-    html, body {
-      font-family: 'Cascadia Mono', 'Consolas', sans-serif;
-      color: white;
-    }
-    
-    main {
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      position: absolute;
-      background-image: url('https://i.pinimg.com/originals/88/d0/fc/88d0fc32cf84ff43090c4e9a7a7d348f.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin: 0;
-      width: 100%;
-      padding: 0;
-      background-position: center;
-    }
-    
-    h1 {
-      color: #79B55B;
-    }
-    
-    h1,
-    #countdown {
-      display: block;
-      width: 100%;
-      font-size: 84px;
-      text-align: center;
-    }
-    
-    
-  </style>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
@@ -51,37 +16,7 @@
     </div>
   </main>
 </body>
-  
-<script>
-  const deadline = '2022-02-26 19:30';
-  
-  function pad(num, size) {
-    num = num.toString();
-    while (num.length < size) num = "0" + num;
-    return num;
-  }
-  
-  function updateCountdown() {
-    const total = Date.parse(deadline) - new Date();
-    const milliseconds = total % 1000;
-    const seconds = Math.floor( (total/1000) % 60 );
-    const minutes = Math.floor( (total/1000/60) % 60 );
-    const hours = Math.floor( (total/(1000*60*60)) % 24 );
-    const days = Math.floor( total/(1000*60*60*24) );
 
-    let desc = '';
-    
-    if (days > 0) {
-      desc += days + 'd ';
-    }
-    
-    desc += pad(hours, 2) + ':' + pad(minutes, 2) + ':' + pad(seconds, 2) + '.' + pad(milliseconds, 3)
-    
-    var el = document.getElementById('countdown');
-    el.innerText = desc;
-  }
-  
-  setInterval(updateCountdown, 1);
-</script>
+<script src="index.js"></script>
 
 </html>
