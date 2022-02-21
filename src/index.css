@@ -19,14 +19,46 @@ main {
     background-position: center;
 }
 
+.fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 45%;
+}
+
 h1 {
     color: #79B55B;
 }
 
 h1,
-#countdown {
+.countdown {
     display: block;
     width: 100%;
     font-size: 84px;
     text-align: center;
+}
+
+@keyframes clock-flash {
+    0% {
+        opacity: 100%;
+    }
+    7.5% {
+        opacity: 0%;
+    }
+    15% {
+        opacity: 100%;
+    }
+    22.5% {
+        opacity: 0%;
+    }
+    30% {
+        opacity: 100%;
+    }
+}
+
+.countdown--expired {
+    animation-name: clock-flash;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }

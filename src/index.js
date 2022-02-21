@@ -1,4 +1,11 @@
 const deadline = '2022-02-26 19:30';
+let intervalId;
+
+const fireworks = new Fireworks(
+    document.querySelector('.fireworks-container'),
+    {
+        particles: 100
+    });
 
 function pad(num, size) {
     num = num.toString();
@@ -7,7 +14,7 @@ function pad(num, size) {
 }
 
 function updateCountdown() {
-    const total = Date.parse(deadline) - new Date();
+    const total = Math.max(0, Date.parse(deadline) - new Date());
     const milliseconds = total % 1000;
     const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
@@ -24,6 +31,12 @@ function updateCountdown() {
 
     var el = document.getElementById('countdown');
     el.innerText = desc;
+
+    if (total == 0) {
+        window.clearInterval(intervalId);
+        el.classList.add('countdown--expired');
+        fireworks.start();
+    }
 }
 
-setInterval(updateCountdown, 1);
+intervalId = window.setInterval(updateCountdown, 1);
