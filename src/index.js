@@ -32,6 +32,17 @@ function updateCountdown() {
     var el = document.getElementById('countdown');
     el.innerText = desc;
 
+    if (milliseconds === 0 
+        && seconds === 0
+        ) {
+        var tronbike = document.getElementById('tron-bike');
+        tronbike.classList.add('animate-bike');
+
+        window.setTimeout(() => {
+           tronbike.classList.remove('animate-bike');
+        }, 3000)
+    } 
+
     if (total == 0) {
         window.clearInterval(intervalId);
         el.classList.add('countdown--expired');
